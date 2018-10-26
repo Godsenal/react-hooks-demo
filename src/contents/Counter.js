@@ -5,6 +5,7 @@ function Counter() {
 
   return (
     <>
+      <p>useState를 이용한 카운터</p>
       <span style={{
         fontSize: 24,
         margin: '1rem'

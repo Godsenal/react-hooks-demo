@@ -1,9 +1,14 @@
 import React from 'react';
 
+const defaultStyle = {
+  margin: '2rem auto',
+  textAlign: 'center',
+};
+
 const Content = ({ title, content }) => {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div style={defaultStyle}>
+      <h2>{title}</h2>
       {content}
     </div>
   )

@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { Content, Counter, ThemeChanger } from './content';
-import ThemeContext from './ThemeContext';
+import { Footer, Header, Section } from 'components';
+import themeContext from 'themeContext';
 
+const defaultStyle = {
+  width: '100vw',
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
 const getStyleByTheme = (theme) => {
   return {
     color: theme === 'dark' ? '#CACCCE' : 'black',
@@ -9,19 +17,18 @@ const getStyleByTheme = (theme) => {
   }
 };
 
-function App() {
+const App = () => {
   const [theme, changeTheme] = useState('default');
   return (
     <div style={{
-        width: '100vw',
-        height: '100vh',
+        ...defaultStyle,
         ...getStyleByTheme(theme)
       }}>
-      <ThemeContext.Provider value={{ theme, changeTheme }}>
-        <h1>React hook demo</h1>
-        <Content title="counter" content={<Counter />} />
-        <Content title="theme changer" content={<ThemeChanger />} />
-      </ThemeContext.Provider>
+      <themeContext.Provider value={{ theme, changeTheme }}>
+        <Header />
+        <Section />
+        <Footer />
+      </themeContext.Provider>
     </div>
   )
 }
