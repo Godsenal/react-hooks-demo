@@ -10,27 +10,29 @@ const defaultStyle = {
   alignItems: 'center',
   justifyContent: 'center',
 };
-const getStyleByTheme = (theme) => {
+const getStyleByTheme = theme => {
   return {
     color: theme === 'dark' ? '#CACCCE' : 'black',
     backgroundColor: theme === 'dark' ? '#2F3437' : 'white',
-  }
+  };
 };
 
 const App = () => {
   const [theme, changeTheme] = useState('default');
   return (
-    <div style={{
+    <div
+      style={{
         ...defaultStyle,
-        ...getStyleByTheme(theme)
-      }}>
+        ...getStyleByTheme(theme),
+      }}
+    >
       <themeContext.Provider value={{ theme, changeTheme }}>
         <Header />
         <Section />
         <Footer />
       </themeContext.Provider>
     </div>
-  )
-}
+  );
+};
 
 export default App;

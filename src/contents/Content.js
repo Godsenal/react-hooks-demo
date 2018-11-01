@@ -11,7 +11,7 @@ const Content = ({ title, content }) => {
       <h2>{title}</h2>
       {content}
     </div>
-  )
+  );
 };
 
 export default Content;
